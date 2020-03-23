@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Case, Entry, Country
+from .models import Case, Entry
 
 class CaseAdmin(admin.ModelAdmin):
     list_display = ('country', 'confirmed', 'active', 'deaths')
@@ -12,4 +12,3 @@ class EntryAdmin(admin.ModelAdmin):
 
 admin.site.register(Case, CaseAdmin)
 admin.site.register(Entry, EntryAdmin)
-admin.site.register(Country)

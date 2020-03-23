@@ -1,14 +1,5 @@
 from django.db import models
 
-class Country(models.Model):
-    name = models.CharField(max_length=150, primary_key=True)
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name_plural = "Countries"
-
 class Entry(models.Model):
     case = models.ForeignKey('Case', on_delete=models.CASCADE)
     new_cases = models.PositiveIntegerField(default=0)
@@ -37,7 +28,7 @@ class Entry(models.Model):
         return self.case.country
 
 class Case(models.Model):
-    country = models.ForeignKey('Country', on_delete=models.CASCADE)
+    country = models.CharField(max_length=150, primary_key=True)
     confirmed = models.PositiveIntegerField(default=0)
     active = models.PositiveIntegerField(default=0)
     new_cases = models.PositiveIntegerField(default=0)
