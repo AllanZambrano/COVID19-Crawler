@@ -5,37 +5,35 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <h1 class="text-center py-5">Coronavirus Update</h1>
-        <table id="example" class="table table-striped table-bordered" style="width:100%">
-            <thead>
-                <tr>
-                    <th>Country</th>
-                    <th>Total Cases</th>
-                    <th>Active Cases</th>
-                    <th>Total Deaths</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for case in object_list %}
-                <tr>
-                    <td>{{ case.country }}</td>
-                    <td>{{ case.total_cases|intcomma }}</td>
-                    <td>{{ case.active_cases|intcomma }}</td>
-                    <td>{{ case.total_deaths|intcomma }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-            <tfoot>
-                <tr>
-                    <th>Country</th>
-                    <th>Total Cases</th>
-                    <th>Active Cases</th>
-                    <th>Total Deaths</th>
-                </tr>
-            </tfoot>
-        </table>
-    </div>
+    <h1 class="text-center py-5">Coronavirus Update</h1>
+    <table id="example" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>Country</th>
+                <th>Total Cases</th>
+                <th>Active Cases</th>
+                <th>Total Deaths</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for case in object_list %}
+            <tr>
+                <td>{{ case.country }}</td>
+                <td>{{ case.total_cases|intcomma }}</td>
+                <td>{{ case.active_cases|intcomma }}</td>
+                <td>{{ case.total_deaths|intcomma }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Country</th>
+                <th>Total Cases</th>
+                <th>Active Cases</th>
+                <th>Total Deaths</th>
+            </tr>
+        </tfoot>
+    </table>
 {% endblock %}
 
 {% block js %}
