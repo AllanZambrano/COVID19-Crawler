@@ -16,15 +16,15 @@ class CrawlerItem(DjangoItem):
         input_processor= MapCompose(remove_tags),
         output_processor= TakeFirst()
     )
-    total_cases = scrapy.Field(
+    confirmed = scrapy.Field(
         input_processor= MapCompose(clean_number),
         output_processor= TakeFirst()
     )
-    active_cases = scrapy.Field(
+    active = scrapy.Field(
         input_processor= MapCompose(clean_number),
         output_processor= TakeFirst()
     )
-    total_deaths = scrapy.Field(
+    deaths = scrapy.Field(
         input_processor= MapCompose(clean_space, clean_number),
         output_processor= TakeFirst()
     )

@@ -2,11 +2,11 @@ from cases.models import Case
 
 class CrawlerPipeline(object):
     def process_item(self, item, spider):
-        if item.get("total_deaths"):
+        if item.get("deaths"):
             item.save()
             return item
         else:
-            item["total_deaths"] = "0"
+            item["deaths"] = "0"
             item.save()
             return item
 
