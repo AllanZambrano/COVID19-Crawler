@@ -1,17 +1,17 @@
-from cases.models import Case
+from cases.models import Case, Country
 
-class CrawlerPipeline(object):
+class CountryPipeline(object):
     def process_item(self, item, spider):
-        if item.get("deaths"):
-            item.save()
-            return item
-        else:
-            item["deaths"] = "0"
-            item.save()
-            return item
+        item.save()
+        return item
 
-# https://stackoverflow.com/questions/23663459/how-to-update-djangoitem-in-scrapy/44997484
-# It updates the bd, changed the PK to country to avoid duplication
+class DataPipeline(object):
+    def process_item(self, item, spider):
+        item['country'] = Country.objects.get(name=item['country'])
+        item.save()
+        return item
+       
+
 class UpdatePipeline(object):
     def process_item(self, item, spider):
         try:

@@ -2,7 +2,7 @@ import scrapy
 from scrapy_djangoitem import DjangoItem
 from scrapy.loader.processors import MapCompose, TakeFirst, Join
 from w3lib.html import remove_tags
-from cases.models import Case
+from cases.models import Case, Country
 
 def clean_space(param):
     return param.strip(' ')
@@ -10,7 +10,7 @@ def clean_space(param):
 def clean_number(param):
     return param.strip().replace(',', '')
 
-class CrawlerItem(DjangoItem):
+class DataItem(DjangoItem):
     django_model = Case
     country = scrapy.Field(
         input_processor= MapCompose(remove_tags),
@@ -28,3 +28,14 @@ class CrawlerItem(DjangoItem):
         input_processor= MapCompose(clean_space, clean_number),
         output_processor= TakeFirst()
     )
+
+class CountryItem(DjangoItem):
+    django_model = Country
+    name = scrapy.Field(        
+        input_processor= MapCompose(clean_number),
+        output_processor= TakeFirst()
+        )
+    code = scrapy.Field(        
+        input_processor= MapCompose(clean_number),
+        output_processor= TakeFirst()
+        )
