@@ -13,6 +13,9 @@ django-environ = "*"
 django-debug-toolbar = "*"
 django-crispy-forms = "*"
 django-flatpickr = "*"
+gunicorn = "*"
+dj-database-url = "*"
+django-heroku = "*"
 
 [requires]
 python_version = "3.8"
