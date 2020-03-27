@@ -14,15 +14,15 @@
                     <div class="row">
                         <div class="col-sm">
                             <h3>Total Cases</h3>
-                            <span class="display-4"><strong></strong></span>
+                            <span class="display-4"><strong>{{ sum.total_cases| intcomma }}</strong></span>
                         </div>
                         <div class="col-sm">
                             <h3>Active</h3>
-                            <span class="display-4"><strong></strong></span>
+                            <span class="display-4"><strong>{{ sum.total_active| intcomma }}</strong></span>
                         </div>
                         <div class="col-sm">
                             <h3>Deaths</h3>
-                            <span class="display-4"><strong></strong></span>
+                            <span class="display-4"><strong>{{ sum.total_deaths| intcomma }}</strong></span>
                         </div>
                     </div>
                 </div>
