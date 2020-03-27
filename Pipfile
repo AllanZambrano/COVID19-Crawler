@@ -17,6 +17,7 @@ gunicorn = "*"
 dj-database-url = "*"
 django-heroku = "*"
 whitenoise = "*"
+sentry-sdk = "*"
 
 [requires]
 python_version = "3.8"

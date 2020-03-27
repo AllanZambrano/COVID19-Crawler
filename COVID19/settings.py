@@ -1,6 +1,17 @@
 import os
 import environ
 import django_heroku
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+
+sentry_sdk.init(
+    dsn="https://4600709af2f648ceba1c72fedb978fbe@sentry.io/5177914",
+    integrations=[DjangoIntegration()],
+
+    # If you wish to associate users to errors (assuming you are using
+    # django.contrib.auth) you may enable sending PII data.
+    send_default_pii=True
+)
 
 env = environ.Env(
     # set casting, default value
@@ -147,3 +158,5 @@ if DEBUG == False:
 django_heroku.settings(locals())
 import dj_database_url
 DATABASES['default'] = dj_database_url.config(conn_max_age=600, default=env('DATABASE_URL'))
+
+
