@@ -1,0 +1,66 @@
+{% extends '_base.html' %}
+{% load humanize %}
+{% block title %}Crawled Data{% endblock %}
+{% block css %}
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+{% endblock %}
+{% block js %}
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#data').DataTable({
+                "order": [[1, "desc"]]
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    {% include 'components/_navbar.html' %}
+    <div class="container">
+        <h2 class="py-4 text-center">COVID 19 Crawled Data</h2>
+        <div class="row">
+            <div class="col-6 offset-2">
+                <table id="data" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                    <tr>
+                        <th>Country</th>
+                        <th>Confirmed</th>
+                        <th>Recovered</th>
+                        <th>Active</th>
+                        <th>New Cases</th>
+                        <th>Deaths</th>
+                        <th>New Deaths</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for object in object_list %}
+                        <tr>
+                            <td> {{ object.country | intcomma }}</td>
+                            <td>{{ object.confirmed| intcomma }}</td>
+                            <td>{{ object.recovered| intcomma }}</td>
+                            <td>{{ object.active| intcomma }}</td>
+                            <td>{{ object.new_cases| intcomma }}</td>
+                            <td>{{ object.deaths| intcomma }}</td>
+                            <td>{{ object.new_deaths| intcomma }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th>Country</th>
+                        <th>Confirmed</th>
+                        <th>Recovered</th>
+                        <th>Active</th>
+                        <th>New Cases</th>
+                        <th>Deaths</th>
+                        <th>New Deaths</th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

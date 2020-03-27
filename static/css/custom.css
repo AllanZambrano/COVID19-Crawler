@@ -1,0 +1,25 @@
+.hero {
+    background: linear-gradient(0deg, #ff6a00 0%, #ee0979 100%);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: scroll;
+    background-size: cover;
+    height: 100vh;
+}
+.hero-head{
+    padding-top: 8rem;
+}
+
+.btn-data{
+	border-radius: 50rem !important;
+	text-transform: uppercase;
+	padding: 1.5rem 3rem;
+	font-size: 1.2rem;
+	font-weight: 700;
+	letter-spacing: .1rem;
+    background: #03256c;
+    border: #03256c;
+}
+.custom-nav{
+    background: linear-gradient(0deg, #ff6a00 0%, #ee0979 100%);
+}

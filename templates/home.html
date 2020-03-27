@@ -1,11 +1,35 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{% block title %}Coronavirus Update!{% endblock %}</title>
-  </head>
-  <body>
+{% extends '_base.html' %}
+{% load humanize %}
+{% block title %}
+    Total Cases
+{% endblock %}
+{% block content %}
+    <div class="hero">
+        {% include "components/_navbarhome.html" %}
+        <div class="hero-head text-center text-white">
+            <div class="container">
+                <h1 class="display-4 mb-0"><strong>COVID-19 Coronavirus Pandemic</strong></h1>
+                <span class="lead">Last Update: <strong>{{ update.updated_at }}</strong></span>
+                <div class="container py-4">
+                    <div class="row">
+                        <div class="col-sm">
+                            <h3>Total Cases</h3>
+                            <span class="display-4"><strong>{{ total.sum_cases| intcomma }}</strong></span>
+                        </div>
+                        <div class="col-sm">
+                            <h3>Active</h3>
+                            <span class="display-4"><strong>{{ total.sum_active| intcomma }}</strong></span>
+                        </div>
+                        <div class="col-sm">
+                            <h3>Deaths</h3>
+                            <span class="display-4"><strong>{{ total.sum_deaths| intcomma }}</strong></span>
+                        </div>
+                    </div>
+                </div>
 
-  </body>
-</html>
+                <a class="btn btn-primary btn-lg mt-5 btn-data" href="{% url 'crawledlist' %}" role="button">Crawled Data</a>
+                <a class="btn btn-primary btn-lg mt-5 btn-data" href="{% url 'countrylist' %}" role="button">Sourced Data</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

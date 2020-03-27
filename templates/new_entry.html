@@ -1,0 +1,40 @@
+{% extends '_base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}New Entry{% endblock %}
+{% block css %}{{ form.media.css }}{% endblock %}
+{% block js %}{{ form.media.js }}{% endblock %}
+{% block content %}
+    {% include 'components/_navbar.html' %}
+    <div class="container py-3">
+        <h2 class="text-center py-4">Add a New Entry</h2>
+        <div class="row">
+            <div class="col-8 offset-2">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-6">
+                            {{ form.country|as_crispy_field }}
+                        </div>
+                        <div class="col-6">
+                            {{ form.state|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                                                {{ form.date|as_crispy_field }}
+
+
+                        </div>
+                        <div class="col-4">
+                            {{ form.new_cases|as_crispy_field }}
+                        </div><div class="col-4">
+                            {{ form.new_deaths|as_crispy_field }}
+                        </div>
+                    </div>
+                    {{ form.source|as_crispy_field }}
+                    <button type="submit" class="btn btn-success">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

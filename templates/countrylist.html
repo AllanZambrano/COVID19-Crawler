@@ -1,0 +1,19 @@
+{% extends '_base.html' %}
+{% block title %}
+    Country List
+{% endblock %}
+{% block content %}
+    {% include 'components/_navbar.html' %}
+    <div class="container py-3">
+        <h4 class="display-4 text-center">Data Entry</h4>
+        <hr>
+        <ul>
+            {% for country in object_list %}
+                <li><a href="{% url 'countrydetail' country.slug %}">{{ country.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    </div>
+
+{% endblock %}

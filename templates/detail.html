@@ -1,0 +1,39 @@
+{% extends '_base.html' %}
+{% block addCSS %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+{% endblock %}
+{% block content %}
+       <h2 class="text-center">{{ country.name }}</h2>
+    <ul>
+    {% for c in country %}
+        <li>{{ date }}</li>
+    {% endfor %}
+
+
+    </ul>
+
+    
+    <div class="chart-container py-5" style="position: relative; height:40vh; width:40vw">
+        <canvas id="chart"></canvas>
+    </div>
+    <script>
+        var ctx = document.getElementById('chart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['General', 'Honduras', 'Brazil'],
+                datasets: [{
+                    label: 'My First dataset',
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: [
+                        0, 10, 5
+                    ]
+                }]
+            },
+
+            // Configuration options go here
+            options: {}
+        });
+    </script>
+{% endblock %}
