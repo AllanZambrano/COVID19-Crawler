@@ -1,7 +1,6 @@
 import os
 import environ
 import django_heroku
-django_heroku.settings(locals())
 
 env = environ.Env(
     # set casting, default value
@@ -138,6 +137,7 @@ if DEBUG == False:
     SECURE_REFERRER_POLICY = 'same-origin'
 
 # Heroku
+django_heroku.settings(locals())
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
