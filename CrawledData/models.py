@@ -5,9 +5,9 @@ class CrawlerCovid(models.Model):
     confirmed = models.IntegerField()
     active = models.IntegerField()
     new_cases = models.IntegerField(default=0)
-    deaths = models.PositiveIntegerField(default=0)
-    new_deaths = models.PositiveIntegerField(default=0)
-    recovered = models.PositiveIntegerField(default=0)
+    deaths = models.IntegerField(default=0)
+    new_deaths = models.IntegerField(default=0)
+    recovered = models.IntegerField(default=0)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
