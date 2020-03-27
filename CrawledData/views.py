@@ -12,9 +12,6 @@ class Home(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(Home, self).get_context_data(**kwargs)
-        context['sum'] = CrawlerCovid.objects.all().aggregate(total_cases=Sum('confirmed'),
-                                                              total_active=Sum('active'),
-                                                              total_deaths=Sum('deaths')
-                                                              )
+        context['sum'] = CrawlerCovid.objects.all().aggregate(total_cases=Sum('confirmed'))
 
         return context
