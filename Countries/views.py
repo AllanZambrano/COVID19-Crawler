@@ -19,7 +19,7 @@ class CountryDetail(DetailView):
         context = super(CountryDetail, self).get_context_data(**kwargs)
         context['labels'] = CountryEntry.objects.filter(country__name=self.object, status=True).values("date").annotate(
             sum_cases=Sum("new_cases")).order_by()
-        context['total'] = CountryEntry.objects.filter(country__name=self.object).aggregate(
+        context['total'] = CountryEntry.objects.filter(country__name=self.object, status=True).aggregate(
             total_cases=Sum("new_cases"),
             total_deaths=Sum("new_deaths"),
         )
