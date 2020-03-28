@@ -13,7 +13,7 @@
 {% block content %}
     {% include 'components/_navbar.html' %}
     <div class="container py-3">
-        <h2 class="text-center">Country: {{ object.name }}</h2>
+        <h2 class="text-center">{{ object.name }}</h2>
         {% if labels %}
             <div class="row pt-4 text-center">
                 <div class="col-xl-4 col-md-6 mb-4">
@@ -78,12 +78,12 @@
                             label: "Cases",
                             type: "line",
                             borderColor: "rgb(255, 99, 132)",
-                            data: [{% for label in labels %}{{ label.sum_cases }}, {% endfor %}],
+                            data: [{% for sum in cum_sum %}{{ sum.cumsum }}, {% endfor %}],
                             fill: false
                         }, {
                             label: "New Cases",
                             type: "bar",
-                            backgroundColor: "rgba(0,0,0,0.2)",
+                            backgroundColor: "rgb(255, 99, 132)",
                             backgroundColorHover: "#3e95cd",
                             data: [{% for label in labels %}{{ label.sum_cases }}, {% endfor %}]
                         }
