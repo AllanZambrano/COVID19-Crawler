@@ -1,6 +1,6 @@
 from .models import Country, CountryEntry
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import FormView
+from django.views.generic.edit import CreateView
 from django.db.models import Sum, Count, Variance
 from .forms import NewEntryForm
 from django.urls import reverse_lazy
@@ -23,7 +23,7 @@ class CountryDetail(DetailView):
         )
         return context
 
-class NewEntry(FormView):
+class NewEntry(CreateView):
     template_name = 'new_entry.html'
     form_class = NewEntryForm
     success_url = reverse_lazy('countrylist')

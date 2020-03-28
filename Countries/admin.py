@@ -9,7 +9,7 @@ def confirm_source(modeladmin, request, queryset):
     confirm_source.short_description = 'Confirm entry source'
 
 class CountryEntryAdmin(admin.ModelAdmin):
-    list_display = ('country', 'new_cases', 'new_deaths', 'status', 'last_update', 'source_url')
+    list_display = ('country', 'new_cases', 'new_deaths', 'status', 'date', 'source_url')
     list_filter = ['status', 'country']
     actions = [confirm_source, ]
     def source_url(self, obj):
