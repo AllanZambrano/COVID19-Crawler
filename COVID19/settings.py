@@ -29,7 +29,7 @@ SECRET_KEY = env('SECRET_KEY')
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-ALLOWED_HOSTS = ['covid19-data-dashboard.herokuapp.com','.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['covid19-data-dashboard.herokuapp.com', '.herokuapp.com', 'localhost', '127.0.0.1']
 
 # Application definition
 
@@ -135,10 +135,7 @@ STATICFILES_DIRS = (
 )
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 INTERNAL_IPS = [
-
-    # ...
     '127.0.0.1',
-    # ...
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -158,6 +155,5 @@ if DEBUG == False:
 # Heroku
 django_heroku.settings(locals())
 import dj_database_url
+
 DATABASES['default'] = dj_database_url.config(conn_max_age=600, default=env('DATABASE_URL'))
-
-
