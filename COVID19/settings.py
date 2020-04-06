@@ -153,7 +153,7 @@ if DEBUG == False:
     SECURE_REFERRER_POLICY = 'same-origin'
 
 if DEBUG == True:
-GDAL_LIBRARY_PATH = r"C:\OSGeo4W\bin\gdal300"
+    GDAL_LIBRARY_PATH = r"C:\OSGeo4W\bin\gdal300"
 
 # Heroku
 django_heroku.settings(locals())
