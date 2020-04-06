@@ -7,8 +7,8 @@ class DataSpider(scrapy.Spider):
     name = "crawlercovid"
     custom_settings = {
         'ITEM_PIPELINES': {
-            'crawler.pipelines.DataPipeline': 300,
-            
+            'crawler.pipelines.DuplicatePipeline': 300,
+
         }
     }
 

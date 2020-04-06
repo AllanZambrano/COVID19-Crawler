@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    'Countries.apps.CountriesConfig',
+    'django.contrib.gis',
     'CrawledData.apps.CrawleddataConfig',
 
     # 3rd party
@@ -152,8 +152,10 @@ if DEBUG == False:
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     SECURE_REFERRER_POLICY = 'same-origin'
 
+GDAL_LIBRARY_PATH = r"C:\OSGeo4W\bin\gdal300"
 # Heroku
 django_heroku.settings(locals())
 import dj_database_url
 
 DATABASES['default'] = dj_database_url.config(conn_max_age=600, default=env('DATABASE_URL'))
+DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'

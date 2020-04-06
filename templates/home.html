@@ -5,7 +5,7 @@
 {% endblock %}
 {% block content %}
     <div class="hero">
-        {% include "components/_navbarhome.html" %}
+        {% include "components/_navbar.html" %}
         <div class="hero-head text-center text-white">
             <div class="container">
                 <h1 class="display-4 mb-0"><strong>COVID-19 Coronavirus Pandemic</strong></h1>
@@ -26,9 +26,7 @@
                         </div>
                     </div>
                 </div>
-
                 <a class="btn btn-primary btn-lg mt-5 btn-data" href="{% url 'crawledlist' %}" role="button">Crawled Data</a>
-                <a class="btn btn-primary btn-lg mt-5 btn-data" href="{% url 'countrylist' %}" role="button">Sourced Data</a>
             </div>
         </div>
     </div>
