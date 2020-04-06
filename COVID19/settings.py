@@ -152,7 +152,9 @@ if DEBUG == False:
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     SECURE_REFERRER_POLICY = 'same-origin'
 
+if DEBUG == True:
 GDAL_LIBRARY_PATH = r"C:\OSGeo4W\bin\gdal300"
+
 # Heroku
 django_heroku.settings(locals())
 import dj_database_url
